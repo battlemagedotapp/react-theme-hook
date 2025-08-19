@@ -20,6 +20,7 @@ var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: tru
 // src/index.ts
 var src_exports = {};
 __export(src_exports, {
+  ModeToggle: () => ModeToggle,
   ThemeProvider: () => ThemeProvider,
   ThemeProviderContext: () => ThemeProviderContext,
   useTheme: () => useTheme
@@ -77,8 +78,35 @@ function ThemeProvider({
   };
   return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ThemeProviderContext.Provider, { ...props, value, children });
 }
+
+// src/components/ModeToggle.tsx
+var import_jsx_runtime2 = require("react/jsx-runtime");
+function ModeToggle({ children }) {
+  const { theme, preferredTheme, setTheme } = useTheme();
+  const getThemeLabel = () => {
+    switch (theme) {
+      case "light":
+        return "Light";
+      case "dark":
+        return "Dark";
+      case "system":
+        return "System";
+      default:
+        return "System";
+    }
+  };
+  const renderProps = {
+    theme,
+    preferredTheme,
+    setTheme,
+    getThemeLabel,
+    availableThemes: ["light", "dark", "system"]
+  };
+  return /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(import_jsx_runtime2.Fragment, { children: children(renderProps) });
+}
 // Annotate the CommonJS export names for ESM import in node:
 0 && (module.exports = {
+  ModeToggle,
   ThemeProvider,
   ThemeProviderContext,
   useTheme

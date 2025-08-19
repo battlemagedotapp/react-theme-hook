@@ -49,7 +49,34 @@ function ThemeProvider({
   };
   return /* @__PURE__ */ jsx(ThemeProviderContext.Provider, { ...props, value, children });
 }
+
+// src/components/ModeToggle.tsx
+import { Fragment, jsx as jsx2 } from "react/jsx-runtime";
+function ModeToggle({ children }) {
+  const { theme, preferredTheme, setTheme } = useTheme();
+  const getThemeLabel = () => {
+    switch (theme) {
+      case "light":
+        return "Light";
+      case "dark":
+        return "Dark";
+      case "system":
+        return "System";
+      default:
+        return "System";
+    }
+  };
+  const renderProps = {
+    theme,
+    preferredTheme,
+    setTheme,
+    getThemeLabel,
+    availableThemes: ["light", "dark", "system"]
+  };
+  return /* @__PURE__ */ jsx2(Fragment, { children: children(renderProps) });
+}
 export {
+  ModeToggle,
   ThemeProvider,
   ThemeProviderContext,
   useTheme
