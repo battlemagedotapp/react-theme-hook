@@ -42,6 +42,4 @@ export function ModeToggle({ children }: ModeToggleProps) {
     return <>{children(renderProps)}</>;
 }
 
-export default ModeToggle;
-
 
