@@ -1,4 +1,3 @@
-export * from "./context/ThemeProviderContext";
-export * from "./hooks/useTheme";
-export * from "./providers/ThemeProvider";
-export * from "./components/ModeToggle";
+export { useTheme } from "./hooks/useTheme";
+export { ThemeProvider } from "./providers/ThemeProvider";
+export { ModeToggle } from "./components/ModeToggle";
